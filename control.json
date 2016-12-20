@@ -1,0 +1,73 @@
+{
+    "translate": {
+        "url": "/v2/translate",
+        "method": "GET",
+        "args": {
+            "credentials|username": "!$username",
+            "credentials|password": "!$password",
+            "String|modelId": "model_id",
+            "String|source": "source",
+            "String|target": "target",
+            "String|text": "$text"
+        }
+    },
+    "getIdentifiableLanguages": {
+        "url": "/v2/identifiable_languages",
+        "method": "GET",
+        "args": {
+            "credentials|username": "!$username",
+            "credentials|password": "!$password"
+        }
+    },
+    "identifyLanguage ": {
+        "url": "/v2/identify",
+        "method": "GET",
+        "args": {
+            "credentials|username": "!$username",
+            "credentials|password": "!$password",
+            "String|text": "$text"
+        }
+    },
+    "getModels": {
+        "url": "/v2/models",
+        "method": "GET",
+        "args": {
+            "credentials|username": "!$username",
+            "credentials|password": "!$password",
+            "Boolean|default": "default",
+            "String|source": "source",
+            "String|target": "target"
+        }
+    },
+    "createModel": {
+        "url": "/v2/models",
+        "method": "POST",
+        "args": {
+            "credentials|username": "!$username",
+            "credentials|password": "!$password",
+            "String|baseModelId": "$base_model_id",
+            "String|name": "name",
+            "File|forcedGlossary": "forced_glossary",
+            "File|parallelCorpus": "parallel_corpus",
+            "File|monolingualCorpus": "monolingual_corpus"
+        }
+    },
+    "deleteModel": {
+        "url": "/v2/models/:modelId",
+        "method": "DELETE",
+        "args": {
+            "credentials|username": "!$username",
+            "credentials|password": "!$password",
+            "String|modelId": "$!modelId"
+        }
+    },
+    "getModelDetails": {
+        "url": "/v2/models/:modelId",
+        "method": "GET",
+        "args": {
+            "credentials|username": "!$username",
+            "credentials|password": "!$password",
+            "String|modelId": "$!modelId"
+        }
+    }
+}
