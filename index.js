@@ -54,7 +54,7 @@ for(let func in control) {
                 let argarr = arg.split('|');
                 let type   = argarr[0];
 
-                if(type == 'File' && req.body.args[argarr[1]]) 
+                if(type == 'File' && req.body.args[argarr[1]])
                     options.files[args[arg]] = req.body.args[argarr[1]];
 
                 opts[args[arg] + '|' + type] = req.body.args[argarr[1]];
@@ -68,9 +68,9 @@ for(let func in control) {
                 headers: {
                     'accept': 'application/json'
                 }
-            }).auth({    
-                type: 'basic', 
-                username: req.body.args['username'], 
+            }).auth({
+                type: 'basic',
+                username: req.body.args['username'],
                 password: req.body.args['password']})
             .request(options);
 

@@ -8,6 +8,18 @@
 1. After log in choose Natural Language Classifier from [services](https://console.ng.bluemix.net/catalog/?category=watson)
 2. Connect Natural Language Classifier to your application at the left side, choose pricing plan and click on 'Create' button at the bottom of the page.
 3. Click on 'Service Credentials' tab to see your username and password.
+
+## IBMWatsonLanguageTranslator.translate
+Translates input text from the source language to the target language.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| username    | credentials| Username obtained from IBM Bluemix.
+| password    | credentials| Password obtained from IBM Bluemix.
+| source      | String     | Used in combination with target as an alternative way to select the model for translation. When target and source are set, and model_id is not set, the system choose a default model with the right language pair to translate (usually the model based on the news domain).
+| target      | String     | Translation target language in 2 or 5 letter language code. Should use 2 letter codes except for when clarifying between multiple supported languages. When model_id is used directly, it will override the source-target language combination. Also, when a 2 letter language code is used, and no suitable default is found (such as “zh”), it returns an error.
+| text        | String     | Input text in UTF-8 encoding. Multiple text query parameters indicate multiple input paragraphs, and a single string is valid input.
+
 ## IBMWatsonLanguageTranslator.translate
 Translates input text from the source language to the target language.
 
@@ -16,8 +28,6 @@ Translates input text from the source language to the target language.
 | username    | credentials| Username obtained from IBM Bluemix.
 | password    | credentials| Password obtained from IBM Bluemix.
 | modelId     | String     | The unique model_id of the translation model used to translate text. The model_id inherently specifies source, target language, and domain. If the model_id is specified, there is no need for the source and target parameters, and the values will be ignored.
-| source      | String     | Used in combination with target as an alternative way to select the model for translation. When target and source are set, and model_id is not set, the system choose a default model with the right language pair to translate (usually the model based on the news domain).
-| target      | String     | Translation target language in 2 or 5 letter language code. Should use 2 letter codes except for when clarifying between multiple supported languages. When model_id is used directly, it will override the source-target language combination. Also, when a 2 letter language code is used, and no suitable default is found (such as “zh”), it returns an error.
 | text        | String     | Input text in UTF-8 encoding. Multiple text query parameters indicate multiple input paragraphs, and a single string is valid input.
 
 ## IBMWatsonLanguageTranslator.getIdentifiableLanguages 

@@ -5,9 +5,18 @@
         "args": {
             "credentials|username": "!$username",
             "credentials|password": "!$password",
-            "String|modelId": "model_id",
-            "String|source": "source",
-            "String|target": "target",
+            "String|source": "$source",
+            "String|target": "$target",
+            "String|text": "$text"
+        }
+    },
+    "translateByModelId": {
+        "url": "/v2/translate",
+        "method": "GET",
+        "args": {
+            "credentials|username": "!$username",
+            "credentials|password": "!$password",
+            "String|modelId": "$model_id",
             "String|text": "$text"
         }
     },
