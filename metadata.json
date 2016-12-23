@@ -14,326 +14,253 @@
       "password"
     ]
   },
-  "blocks": [
-    {
-      "name": "translate",
-      "description": "Translates input text from the source language to the target language.",
-      "args": [
-        {
-          "name": "username",
-          "type": "credentials",
-          "info": "Username obtained from IBM Bluemix.",
-          "required": true
-        },
-        {
-          "name": "password",
-          "type": "credentials",
-          "info": "Password obtained from IBM Bluemix.",
-          "required": true
-        },
-        {
-          "name": "source",
-          "type": "String",
-          "info": "Used in combination with target as an alternative way to select the model for translation.",
-          "required": true
-        },
-        {
-          "name": "target",
-          "type": "String",
-          "info": "Translation target language in 2 or 5 letter language code. Should use 2 letter codes except for when clarifying between multiple supported languages. When model_id is used directly, it will override the source-target language combination. Also, when a 2 letter language code is used, and no suitable default is found (such as “zh”), it returns an error.",
-          "required": true
-        },
-        {
-          "name": "text",
-          "type": "String",
-          "info": "Input text in UTF-8 encoding. Multiple text query parameters indicate multiple input paragraphs, and a single string is valid input.",
-          "required": true
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "success",
-          "info": "Success"
-        },
-        {
-          "name": "error",
-          "info": "Error"
-        }
-      ]
-    },
-    {
-      "name": "translateByModelId",
-      "description": "Translates input text from the source language to the target language.",
-      "args": [
-        {
-          "name": "username",
-          "type": "credentials",
-          "info": "Username obtained from IBM Bluemix.",
-          "required": true
-        },
-        {
-          "name": "password",
-          "type": "credentials",
-          "info": "Password obtained from IBM Bluemix.",
-          "required": true
-        },
-        {
-          "name": "modelId",
-          "type": "String",
-          "info": "The unique model_id of the translation model used to translate text. The model_id inherently specifies source, target language, and domain. If the model_id is specified, there is no need for the source and target parameters, and the values will be ignored.",
-          "required": true
-        }
-        {
-          "name": "text",
-          "type": "String",
-          "info": "Input text in UTF-8 encoding. Multiple text query parameters indicate multiple input paragraphs, and a single string is valid input.",
-          "required": true
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "success",
-          "info": "Success"
-        },
-        {
-          "name": "error",
-          "info": "Error"
-        }
-      ]
-    },
-    {
-      "name": "getIdentifiableLanguages ",
-      "description": "Return the list of languages it can detect.",
-      "args": [
-        {
-          "name": "username",
-          "type": "credentials",
-          "info": "Username obtained from IBM Bluemix.",
-          "required": true
-        },
-        {
-          "name": "password",
-          "type": "credentials",
-          "info": "Password obtained from IBM Bluemix.",
-          "required": true
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "success",
-          "info": "Success"
-        },
-        {
-          "name": "error",
-          "info": "Error"
-        }
-      ]
-    },
-    {
-      "name": "identifyLanguage ",
-      "description": "Identify the language in which a text is written.",
-      "args": [
-        {
-          "name": "username",
-          "type": "credentials",
-          "info": "Username obtained from IBM Bluemix.",
-          "required": true
-        },
-        {
-          "name": "password",
-          "type": "credentials",
-          "info": "Password obtained from IBM Bluemix.",
-          "required": true
-        },
-        {
-          "name": "text",
-          "type": "String",
-          "info": "Input text in UTF-8 format.",
-          "required": true
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "success",
-          "info": "Success"
-        },
-        {
-          "name": "error",
-          "info": "Error"
-        }
-      ]
-    },
-    {
-      "name": " getModels",
-      "description": "Lists available models for the Language translator service with option to filter by source or by target language.",
-      "args": [
-        {
-          "name": "username",
-          "type": "credentials",
-          "info": "Username obtained from IBM Bluemix.",
-          "required": true
-        },
-        {
-          "name": "password",
-          "type": "credentials",
-          "info": "Password obtained from IBM Bluemix.",
-          "required": true
-        },
-        {
-          "name": "default",
-          "type": "Boolean",
-          "info": "Valid values are leaving it unset, 'true' and 'false'. When 'true', it filters models to return the default model or models. When 'false' it returns the non-default model or models. If not set, all models (default and non-default) return.",
-          "required": false
-        },
-        {
-          "name": "source",
-          "type": "String",
-          "info": "Define with target. Filters models by source language.",
-          "required": false
-        },
-        {
-          "name": "target",
-          "type": "String",
-          "info": "Define with source. Filters models by target language.",
-          "required": false
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "success",
-          "info": "Success"
-        },
-        {
-          "name": "error",
-          "info": "Error"
-        }
-      ]
-    },
-    {
-      "name": "createModel",
-      "description": "Uploads a TMX glossary file on top of a domain to customize a translation model.Depending on the size of the file, training can range from minutes for a glossary to several hours for a large parallel corpus. Glossary files must be less than 10 MB. The cumulative file size of all uploaded glossary and corpus files is limited to 250 MB.",
-      "args": [
-        {
-          "name": "username",
-          "type": "credentials",
-          "info": "Username obtained from IBM Bluemix.",
-          "required": true
-        },
-        {
-          "name": "password",
-          "type": "credentials",
-          "info": "Password obtained from IBM Bluemix.",
-          "required": true
-        },
-        {
-          "name": "baseModelId",
-          "type": "String",
-          "info": "Specifies the domain model that is used as the base for the training. To see current supported domain models, use `getModels` method.",
-          "required": true
-        },
-        {
-          "name": "name",
-          "type": "String",
-          "info": "The model name. Valid characters are letters, numbers, -, and _. No spaces.",
-          "required": false
-        },
-        {
-          "name": "forcedGlossary",
-          "type": "File",
-          "info": "A TMX file with your customizations. Anything that is specified in this file completely overwrites the domain data translation. You can upload only one glossary with a file size less than 10 MB per call.",
-          "required": false
-        },
-        {
-          "name": "parallelCorpus",
-          "type": "File",
-          "info": "A TMX file that contains entries that are treated as a parallel corpus instead of a glossary.",
-          "required": false
-        },
-        {
-          "name": "monolingualCorpus",
-          "type": "File",
-          "info": "A UTF-8 encoded plain text file that is used to customize the target language model.",
-          "required": false
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "success",
-          "info": "Success"
-        },
-        {
-          "name": "error",
-          "info": "Error"
-        }
-      ]
-    },
-    {
-      "name": "deleteModel",
-      "description": "Deletes trained translation models.",
-      "args": [
-        {
-          "name": "username",
-          "type": "credentials",
-          "info": "Username obtained from IBM Bluemix.",
-          "required": true
-        },
-        {
-          "name": "password",
-          "type": "credentials",
-          "info": "Password obtained from IBM Bluemix.",
-          "required": true
-        },
-        {
-          "name": "modelId",
-          "type": "String",
-          "info": "The model identifier.",
-          "required": true
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "success",
-          "info": "Success"
-        },
-        {
-          "name": "error",
-          "info": "Error"
-        }
-      ]
-    },
-    {
-      "name": "getModelDetails",
-      "description": "Returns information, including training status, about a specified translation model.",
-      "args": [
-        {
-          "name": "username",
-          "type": "credentials",
-          "info": "Username obtained from IBM Bluemix.",
-          "required": true
-        },
-        {
-          "name": "password",
-          "type": "credentials",
-          "info": "Password obtained from IBM Bluemix.",
-          "required": true
-        },
-        {
-          "name": "modelId",
-          "type": "String",
-          "info": "The model identifier.",
-          "required": true
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "success",
-          "info": "Success"
-        },
-        {
-          "name": "error",
-          "info": "Error"
-        }
-      ]
-    }
-  ]
+  "blocks": [{
+    "name": "translate",
+    "description": "Translates input text from the source language to the target language.",
+    "args": [{
+      "name": "username",
+      "type": "credentials",
+      "info": "Username obtained from IBM Bluemix.",
+      "required": true
+    }, {
+      "name": "password",
+      "type": "credentials",
+      "info": "Password obtained from IBM Bluemix.",
+      "required": true
+    }, {
+      "name": "source",
+      "type": "String",
+      "info": "Used in combination with target as an alternative way to select the model for translation.",
+      "required": true
+    }, {
+      "name": "target",
+      "type": "String",
+      "info": "Translation target language in 2 or 5 letter language code. Should use 2 letter codes except for when clarifying between multiple supported languages. When model_id is used directly, it will override the source-target language combination. Also, when a 2 letter language code is used, and no suitable default is found (such as “zh”), it returns an error.",
+      "required": true
+    }, {
+      "name": "text",
+      "type": "String",
+      "info": "Input text in UTF-8 encoding. Multiple text query parameters indicate multiple input paragraphs, and a single string is valid input.",
+      "required": true
+    }],
+    "callbacks": [{
+      "name": "success",
+      "info": "Success"
+    }, {
+      "name": "error",
+      "info": "Error"
+    }]
+  }, {
+    "name": "translateByModelId",
+    "description": "Translates input text from the source language to the target language.",
+    "args": [{
+      "name": "username",
+      "type": "credentials",
+      "info": "Username obtained from IBM Bluemix.",
+      "required": true
+    }, {
+      "name": "password",
+      "type": "credentials",
+      "info": "Password obtained from IBM Bluemix.",
+      "required": true
+    }, {
+      "name": "modelId",
+      "type": "String",
+      "info": "The unique model_id of the translation model used to translate text. The model_id inherently specifies source, target language, and domain. If the model_id is specified, there is no need for the source and target parameters, and the values will be ignored.",
+      "required": true
+    }, {
+      "name": "text",
+      "type": "String",
+      "info": "Input text in UTF-8 encoding. Multiple text query parameters indicate multiple input paragraphs, and a single string is valid input.",
+      "required": true
+    }],
+    "callbacks": [{
+      "name": "success",
+      "info": "Success"
+    }, {
+      "name": "error",
+      "info": "Error"
+    }]
+  }, {
+    "name": "getIdentifiableLanguages ",
+    "description": "Return the list of languages it can detect.",
+    "args": [{
+      "name": "username",
+      "type": "credentials",
+      "info": "Username obtained from IBM Bluemix.",
+      "required": true
+    }, {
+      "name": "password",
+      "type": "credentials",
+      "info": "Password obtained from IBM Bluemix.",
+      "required": true
+    }],
+    "callbacks": [{
+      "name": "success",
+      "info": "Success"
+    }, {
+      "name": "error",
+      "info": "Error"
+    }]
+  }, {
+    "name": "identifyLanguage ",
+    "description": "Identify the language in which a text is written.",
+    "args": [{
+      "name": "username",
+      "type": "credentials",
+      "info": "Username obtained from IBM Bluemix.",
+      "required": true
+    }, {
+      "name": "password",
+      "type": "credentials",
+      "info": "Password obtained from IBM Bluemix.",
+      "required": true
+    }, {
+      "name": "text",
+      "type": "String",
+      "info": "Input text in UTF-8 format.",
+      "required": true
+    }],
+    "callbacks": [{
+      "name": "success",
+      "info": "Success"
+    }, {
+      "name": "error",
+      "info": "Error"
+    }]
+  }, {
+    "name": " getModels",
+    "description": "Lists available models for the Language translator service with option to filter by source or by target language.",
+    "args": [{
+      "name": "username",
+      "type": "credentials",
+      "info": "Username obtained from IBM Bluemix.",
+      "required": true
+    }, {
+      "name": "password",
+      "type": "credentials",
+      "info": "Password obtained from IBM Bluemix.",
+      "required": true
+    }, {
+      "name": "default",
+      "type": "Boolean",
+      "info": "Valid values are leaving it unset, 'true' and 'false'. When 'true', it filters models to return the default model or models. When 'false' it returns the non-default model or models. If not set, all models (default and non-default) return.",
+      "required": false
+    }, {
+      "name": "source",
+      "type": "String",
+      "info": "Define with target. Filters models by source language.",
+      "required": false
+    }, {
+      "name": "target",
+      "type": "String",
+      "info": "Define with source. Filters models by target language.",
+      "required": false
+    }],
+    "callbacks": [{
+      "name": "success",
+      "info": "Success"
+    }, {
+      "name": "error",
+      "info": "Error"
+    }]
+  }, {
+    "name": "createModel",
+    "description": "Uploads a TMX glossary file on top of a domain to customize a translation model.Depending on the size of the file, training can range from minutes for a glossary to several hours for a large parallel corpus. Glossary files must be less than 10 MB. The cumulative file size of all uploaded glossary and corpus files is limited to 250 MB.",
+    "args": [{
+      "name": "username",
+      "type": "credentials",
+      "info": "Username obtained from IBM Bluemix.",
+      "required": true
+    }, {
+      "name": "password",
+      "type": "credentials",
+      "info": "Password obtained from IBM Bluemix.",
+      "required": true
+    }, {
+      "name": "baseModelId",
+      "type": "String",
+      "info": "Specifies the domain model that is used as the base for the training. To see current supported domain models, use `getModels` method.",
+      "required": true
+    }, {
+      "name": "name",
+      "type": "String",
+      "info": "The model name. Valid characters are letters, numbers, -, and _. No spaces.",
+      "required": false
+    }, {
+      "name": "forcedGlossary",
+      "type": "File",
+      "info": "A TMX file with your customizations. Anything that is specified in this file completely overwrites the domain data translation. You can upload only one glossary with a file size less than 10 MB per call.",
+      "required": false
+    }, {
+      "name": "parallelCorpus",
+      "type": "File",
+      "info": "A TMX file that contains entries that are treated as a parallel corpus instead of a glossary.",
+      "required": false
+    }, {
+      "name": "monolingualCorpus",
+      "type": "File",
+      "info": "A UTF-8 encoded plain text file that is used to customize the target language model.",
+      "required": false
+    }],
+    "callbacks": [{
+      "name": "success",
+      "info": "Success"
+    }, {
+      "name": "error",
+      "info": "Error"
+    }]
+  }, {
+    "name": "deleteModel",
+    "description": "Deletes trained translation models.",
+    "args": [{
+      "name": "username",
+      "type": "credentials",
+      "info": "Username obtained from IBM Bluemix.",
+      "required": true
+    }, {
+      "name": "password",
+      "type": "credentials",
+      "info": "Password obtained from IBM Bluemix.",
+      "required": true
+    }, {
+      "name": "modelId",
+      "type": "String",
+      "info": "The model identifier.",
+      "required": true
+    }],
+    "callbacks": [{
+      "name": "success",
+      "info": "Success"
+    }, {
+      "name": "error",
+      "info": "Error"
+    }]
+  }, {
+    "name": "getModelDetails",
+    "description": "Returns information, including training status, about a specified translation model.",
+    "args": [{
+      "name": "username",
+      "type": "credentials",
+      "info": "Username obtained from IBM Bluemix.",
+      "required": true
+    }, {
+      "name": "password",
+      "type": "credentials",
+      "info": "Password obtained from IBM Bluemix.",
+      "required": true
+    }, {
+      "name": "modelId",
+      "type": "String",
+      "info": "The model identifier.",
+      "required": true
+    }],
+    "callbacks": [{
+      "name": "success",
+      "info": "Success"
+    }, {
+      "name": "error",
+      "info": "Error"
+    }]
+  }]
 }
