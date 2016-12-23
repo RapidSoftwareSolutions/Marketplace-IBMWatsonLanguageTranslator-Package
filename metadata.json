@@ -1,14 +1,14 @@
 {
   "package": "IBMWatsonLanguageTranslator",
   "tagline": "IBMWatsonLanguageTranslator API Package",
-  "description": "",
+  "description": "Lets you choose a domain-specific translation model, optionally customize it, select or automatically identify the language used in your input text, and then translate text from one supported language to another.",
   "image": "https://avatars0.githubusercontent.com/u/9221727?v=3&s=200",
   "keywords": [
     "API"
   ],
   "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-IBMWatsonLanguageTranslator-Package",
   "accounts": {
-    "domain": "https://www.scaleapi.com/audio-transcription?ref=rapidapi",
+    "domain": "https://www.ibm.com/watson?ref=rapidapi",
     "credentials": [
       "username",
       "password"

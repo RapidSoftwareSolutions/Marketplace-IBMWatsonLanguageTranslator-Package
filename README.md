@@ -1,6 +1,6 @@
 # IBMWatsonLanguageTranslator Package
 
-* Domain: https://www.scaleapi.com/audio-transcription?ref=rapidapi
+* Domain: https://www.ibm.com/watson
 * Credentials: username, password
 
 ## How to get credentials: 
