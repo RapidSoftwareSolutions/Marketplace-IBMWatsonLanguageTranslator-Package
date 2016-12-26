@@ -30,7 +30,7 @@
     },
     "identifyLanguage": {
         "url": "/v2/identify",
-        "method": "POST",
+        "method": "GET",
         "args": {
             "credentials|username": "!$username",
             "credentials|password": "!$password",
