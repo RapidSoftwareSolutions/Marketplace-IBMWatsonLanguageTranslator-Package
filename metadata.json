@@ -129,7 +129,7 @@
       "info": "Error"
     }]
   }, {
-    "name": " getModels",
+    "name": "getModels",
     "description": "Lists available models for the Language translator service with option to filter by source or by target language.",
     "args": [{
       "name": "username",
