@@ -1,3 +1,4 @@
+[![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/IBMWatsonLanguageTranslator/functions?utm_source=RapidAPIGitHub_IBMTranslatorFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
 # IBMWatsonLanguageTranslator Package
 
 * Domain: https://www.ibm.com/watson
