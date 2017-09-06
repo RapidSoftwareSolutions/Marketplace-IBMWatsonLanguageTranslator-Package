@@ -143,7 +143,8 @@
       "required": true
     }, {
       "name": "default",
-      "type": "Boolean",
+      "type": "Select",
+      "options": ["true", "false"],
       "info": "Valid values are leaving it unset, 'true' and 'false'. When 'true', it filters models to return the default model or models. When 'false' it returns the non-default model or models. If not set, all models (default and non-default) return.",
       "required": false
     }, {

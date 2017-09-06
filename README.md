@@ -1,11 +1,11 @@
 [![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/IBMWatsonLanguageTranslator/functions?utm_source=RapidAPIGitHub_IBMTranslatorFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
 # IBMWatsonLanguageTranslator Package
 
-* Domain: https://www.ibm.com/watson
+* Domain: [IBM](https://www.ibm.com/watson)
 * Credentials: username, password
 
-## How to get credentials: 
-0. Register to [IBM Bluemix Console](https://console.ng.bluemix.net/registration/) 
+## How to get credentials:
+0. Register to [IBM Bluemix Console](https://console.ng.bluemix.net/registration/)
 1. After log in choose Language Translator from [services](https://console.ng.bluemix.net/catalog/?category=watson)
 2. Connect Language Translator to your application at the left side, choose pricing plan and click on 'Create' button at the bottom of the page.
 3. Click on 'Service Credentials' tab to see your username and password.
@@ -21,7 +21,7 @@ Translates input text from the source language to the target language.
 | target      | String     | Translation target language in 2 or 5 letter language code. Should use 2 letter codes except for when clarifying between multiple supported languages. When model_id is used directly, it will override the source-target language combination. Also, when a 2 letter language code is used, and no suitable default is found (such as “zh”), it returns an error.
 | text        | String     | Input text in UTF-8 encoding. Multiple text query parameters indicate multiple input paragraphs, and a single string is valid input.
 
-## IBMWatsonLanguageTranslator.translate
+## IBMWatsonLanguageTranslator.translateByModelId
 Translates input text from the source language to the target language.
 
 | Field       | Type       | Description
@@ -31,7 +31,7 @@ Translates input text from the source language to the target language.
 | modelId     | String     | The unique model_id of the translation model used to translate text. The model_id inherently specifies source, target language, and domain. If the model_id is specified, there is no need for the source and target parameters, and the values will be ignored.
 | text        | String     | Input text in UTF-8 encoding. Multiple text query parameters indicate multiple input paragraphs, and a single string is valid input.
 
-## IBMWatsonLanguageTranslator.getIdentifiableLanguages 
+## IBMWatsonLanguageTranslator.getIdentifiableLanguages
 Return the list of languages it can detect.
 
 | Field       | Type       | Description
@@ -39,7 +39,7 @@ Return the list of languages it can detect.
 | username    | credentials| Username obtained from IBM Bluemix.
 | password    | credentials| Password obtained from IBM Bluemix.
 
-## IBMWatsonLanguageTranslator.identifyLanguage 
+## IBMWatsonLanguageTranslator.identifyLanguage
 Identify the language in which a text is written.
 
 | Field       | Type       | Description
@@ -48,7 +48,7 @@ Identify the language in which a text is written.
 | password    | credentials| Password obtained from IBM Bluemix.
 | text        | String     | Input text in UTF-8 format.
 
-## IBMWatsonLanguageTranslator. getModels
+## IBMWatsonLanguageTranslator.getModels
 Lists available models for the Language translator service with option to filter by source or by target language.
 
 | Field       | Type       | Description
@@ -89,4 +89,3 @@ Returns information, including training status, about a specified translation mo
 | username    | credentials| Username obtained from IBM Bluemix.
 | password    | credentials| Password obtained from IBM Bluemix.
 | modelId     | String     | The model identifier.
-
